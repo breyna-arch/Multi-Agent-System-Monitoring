@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <style>
+    body { font-family: Arial; background: #f7f9fc; margin: 40px; }
+    h1 { color: #2b2b2b; }
+    .card { background: white; padding: 20px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+  </style>
+</head>
+<body>
+  <h1>SystemMonitoring AI Dashboard</h1>
+
+  <div class="card">
+    <h2>Current Metrics</h2>
+    <p>CPU: {{ metrics.cpu_percent }}%</p>
+    <p>Memory: {{ metrics.memory_percent }}%</p>
+    <p>Disk: {{ metrics.disk_percent }}%</p>
+  </div>
+
+  <div class="card">
+    <h2>Alerts</h2>
+    {% for alert in alerts %}
+      <p>{{ alert }}</p>
+    {% endfor %}
+  </div>
+
+  <div class="card">
+    <h2>Latest AI Summary</h2>
+    <p>{{ summary }}</p>
+  </div>
+
+  <div class="card">
+    <h2>Last Hour Overview</h2>
+    <pre>{{ hourly_summary }}</pre>
+  </div>
+</body>
+</html>
